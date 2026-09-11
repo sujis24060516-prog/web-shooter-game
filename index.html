@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Space Shooter Game</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            font-family: 'Arial', sans-serif;
+        }
+
+        #gameContainer {
+            position: relative;
+            width: 800px;
+            height: 600px;
+            background: radial-gradient(ellipse at center, #0a0e27 0%, #000000 100%);
+            border: 3px solid #00ff88;
+            box-shadow: 0 0 20px rgba(0, 255, 136, 0.5), inset 0 0 20px rgba(0, 255, 136, 0.1);
+            overflow: hidden;
+        }
+
+        canvas {
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+
+        #info {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            color: #00ff88;
+            font-size: 16px;
+            font-weight: bold;
+            text-shadow: 0 0 10px rgba(0, 255, 136, 0.7);
+            z-index: 10;
+        }
+
+        #score {
+            font-size: 20px;
+            margin-bottom: 5px;
+        }
+
+        #lives {
+            font-size: 20px;
+        }
+
+        #gameOver {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(0, 0, 0, 0.9);
+            color: #00ff88;
+            padding: 40px;
+            border: 2px solid #00ff88;
+            border-radius: 10px;
+            text-align: center;
+            display: none;
+            z-index: 20;
+            box-shadow: 0 0 30px rgba(0, 255, 136, 0.5);
+        }
+
+        #gameOver h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            text-shadow: 0 0 10px rgba(0, 255, 136, 0.7);
+        }
+
+        #gameOver p {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        #gameOver button {
+            padding: 10px 20px;
+            font-size: 18px;
+            background: #00ff88;
+            color: #000;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        #gameOver button:hover {
+            background: #00ff88;
+            transform: scale(1.05);
+            box-shadow: 0 0 20px rgba(0, 255, 136, 0.7);
+        }
+
+        .controls {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #00ff88;
+            font-size: 12px;
+            text-align: center;
+            z-index: 10;
+        }
+    </style>
+</head>
+<body>
+    <div id="gameContainer">
+        <canvas id="gameCanvas"></canvas>
+        <div id="info">
+            <div id="score">Score: 0</div>
+            <div id="lives">Lives: 3</div>
+        </div>
+        <div id="gameOver">
+            <h1>GAME OVER!</h1>
+            <p id="finalScore">Final Score: 0</p>
+            <button onclick="location.reload()">Play Again</button>
+        </div>
+        <div class="controls">
+            <p>Arrow Keys or WASD to Move | SPACE to Shoot</p>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>
